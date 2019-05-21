@@ -1,5 +1,5 @@
 <template>
-  <div class="preview">
+  <div class="preview smartdown-container">
     <div class="preview__inner-1" @click="onClick" @scroll="onScroll">
       <div class="preview__inner-2" :style="{padding: styles.previewPadding}">
       </div>

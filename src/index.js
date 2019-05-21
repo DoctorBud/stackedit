@@ -51,9 +51,29 @@ if (!localStorage.installPrompted) {
 
 Vue.config.productionTip = false;
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  store,
-  render: h => h(App),
-});
+/* eslint-disable */
+
+function smartdownLoaded() {
+  /* eslint-disable no-new */
+  console.log('smartdownLoaded.');
+  const app = new Vue({
+    el: '#app',
+    store,
+    render: h => h(App),
+  });
+}
+
+    window.smartdownDefaultHome = 'Home';
+    window.smartdownBaseURL = 'https://unpkg.com/smartdown/dist/';
+    window.smartdownResourceURL = 'https://unpkg.com/smartdown-gallery/resources/';
+    window.smartdownStarter(smartdownLoaded);
+
+// const baseURL = 'https://smartdown.site/';
+// const svgIcons = {};
+// const cardLoader = null;
+// const calcHandlers = null;
+// const linkRules = [];
+
+// /* global smartdown */
+// smartdown.initialize(svgIcons, baseURL, smartdownLoaded, cardLoader, calcHandlers, linkRules);
+

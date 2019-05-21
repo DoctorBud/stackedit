@@ -160,12 +160,29 @@ const editorSvc = Object.assign(new Vue(), editorSvcDiscussions, editorSvcUtils,
           this.tocElt.removeChild(sectionTocElt);
         } else if (item[0] === 1) {
           const html = htmlSanitizer.sanitizeHtml(this.conversionCtx.htmlSectionList[sectionIdx]);
-          sectionIdx += 1;
+          // console.log('in refreshPreview, upon insertion replacing html with markdown text');
+          const perSectionMarkdownSource = this.conversionCtx.sectionList[sectionIdx].text;
+          // html = `<h1>We will soon be Smartdowning the following per-section Markdown:</h1>
+          //  <pre>${perSectionMarkdownSource}</pre>`;
 
           // Create preview section element
           sectionPreviewElt = document.createElement('div');
           sectionPreviewElt.className = 'cl-preview-section';
-          sectionPreviewElt.innerHTML = html;
+
+          sectionPreviewElt.id = `section${sectionIdx}`;
+          sectionIdx += 1;
+
+          // sectionPreviewElt.innerHTML = html;
+          /* global smartdown */
+          /* eslint-disable */
+          smartdown.setSmartdown(perSectionMarkdownSource, sectionPreviewElt,
+            () => {
+              // console.log(`invoked setSmartdown() with content:${perSectionMarkdownSource},
+              //   div:`, sectionPreviewElt);
+              smartdown.startAutoplay(sectionPreviewElt);
+            });
+
+          // sectionPreviewElt.innerHTML = html;
           if (insertBeforePreviewElt) {
             this.previewElt.insertBefore(sectionPreviewElt, insertBeforePreviewElt);
           } else {

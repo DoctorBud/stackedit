@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <base href="/stackedit/">
     <meta charset="utf-8">
     <title>StackEdit</title>
     <link rel="canonical" href="https://stackedit.io/app">
@@ -9,9 +10,24 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link
+    rel=stylesheet
+    href="https://unpkg.com/smartdown/dist/lib/fonts.css">
+  <link
+    rel=stylesheet
+    href="https://unpkg.com/smartdown/dist/lib/smartdown.css">
+  <script
+    src="https://unpkg.com/smartdown/dist/lib/smartdown.js">
+  </script>
+
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+
+    <script src="https://unpkg.com/smartdown/dist/lib/calc_handlers.js"></script>
+    <script src="static/smartdown/starter.js"></script>
   </body>
 </html>
