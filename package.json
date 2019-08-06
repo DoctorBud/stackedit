@@ -12,6 +12,7 @@
     "postinstall": "gulp build-prism",
     "start": "node build/dev-server.js",
     "build": "node build/build.js && npm run build-style",
+    "buildgh": "BUILDGH=1 npm run build",
     "build-style": "webpack --config build/webpack.style.conf.js",
     "lint": "eslint --ext .js,.vue src server",
     "unit": "jest --config test/unit/jest.conf.js --runInBand",

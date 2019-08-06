@@ -1,13 +1,13 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-module.exports = {
+var config = {
   build: {
     env: require('./prod.env'),
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/stackedit/',
+    assetsPublicPath: '/',
     productionSourceMap: true,
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
@@ -36,4 +36,11 @@ module.exports = {
     // cssSourceMap: false
     cssSourceMap: true
   }
+};
+
+if (process.env.BUILDGH) {
+    console.log('BUILDGH');
+    config.build.assetsPublicPath = '/stackedit/';
 }
+
+module.exports = config;

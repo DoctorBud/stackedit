@@ -1,7 +1,7 @@
 REMOTE=`git remote get-url --push origin`
 echo "REMOTE: ${REMOTE}"
 
-# npm run build
+npm run buildgh
 
 rm -rf /tmp/dist/
 cp -r dist/ /tmp/dist/

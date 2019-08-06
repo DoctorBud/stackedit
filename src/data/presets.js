@@ -70,6 +70,9 @@ export default {
     emoji: {
       enabled: true,
     },
+    abc: {
+      enabled: true,
+    },
   }],
   default: [zero, {
     markdown: {
